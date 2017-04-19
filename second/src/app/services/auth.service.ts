@@ -15,7 +15,6 @@ export class AuthService {
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/users/register', user, {headers: headers})
       .map(res => {
-        debugger;
         return res.json()});
   }
 
