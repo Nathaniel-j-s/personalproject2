@@ -19,7 +19,7 @@ export class ValidateService {
   }
 
   validateProp(prop){
-    if(prop.name == undefined || prop.address.street == undefined || prop.address.city == undefined || prop.address.state == undefined || prop.address.country == undefined || prop.type == undefined || prop.manager == undefined) {
+    if(prop.name == undefined || prop.street == undefined || prop.city == undefined || prop.state == undefined || prop.country == undefined || prop.type == undefined || prop.manager == undefined) {
       return false;
     } else {
       return true;

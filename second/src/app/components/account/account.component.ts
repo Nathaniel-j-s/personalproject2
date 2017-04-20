@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
+import {PropAuthService} from '../../services/prop-auth.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -9,9 +10,11 @@ import {Router} from '@angular/router';
 })
 export class AccountComponent implements OnInit {
   user:Object;
+  props:Object;
 
   constructor(
     private authService:AuthService,
+    private propAuthService:PropAuthService,
     private router:Router
   ) { }
 
@@ -23,6 +26,12 @@ export class AccountComponent implements OnInit {
       console.log(err);
       return false;
     });
+
+    this.propAuthService.getProps().subscribe(prop => {
+      this.props = prop;
+      console.log(prop);
+    });
+
   }
 
 }

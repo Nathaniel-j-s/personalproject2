@@ -11,12 +11,10 @@ import {Router} from '@angular/router';
 })
 export class AddPropComponent implements OnInit {
   name: String;
-  address: {
-    street: String;
-    city: String;
-    state: String;
-    country: String;
-  };
+  street: String;
+  city: String;
+  state: String;
+  country: String;
   type: String;
   manager: String;
 
@@ -30,18 +28,18 @@ export class AddPropComponent implements OnInit {
   ngOnInit() {
   }
 
-  onPropSubmit() {
+  onPropSubmit(event) {
+    event.preventDefault();
     const prop = {
       name: this.name,
-      address: {
-        street: this.address.street,
-        city: this.address.city,
-        state: this.address.state,
-        country: this.address.country
-      },
+      street: this.street,
+      city: this.city,
+      state: this.state,
+      country: this.country,
       type: this.type,
       manager: this.manager
     }
+    console.log(prop);
 
     // Required fields
     if(!this.validateService.validateProp(prop)) {

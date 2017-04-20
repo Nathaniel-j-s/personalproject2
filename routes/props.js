@@ -8,12 +8,10 @@ const Prop = require('../models/prop');
 router.post('/add-prop', (req, res, next) => {
   let newProp = new Prop({
     name: req.body.name,
-    address: {
-      street: req.body.street,
-      city: req.body.city,
-      state: req.body.state,
-      country: req.body.country
-    },
+    street: req.body.street,
+    city: req.body.city,
+    state: req.body.state,
+    country: req.body.country,
     type: req.body.type,
     manager: req.body.manager
   });
@@ -27,8 +25,10 @@ router.post('/add-prop', (req, res, next) => {
   });
 });
 
-router.get('/prop', passport.authenticate('jwt', {session: false}), (req, res, next) => {
-  res.json({prop: req.prop});
+router.get('/account', (req, res, next) => {
+  Prop.getProps(function(err, prop) {
+    res.json(prop);
+  });
 });
 
 module.exports = router;

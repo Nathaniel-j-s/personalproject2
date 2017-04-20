@@ -1,3 +1,33 @@
-<p>
-  add-prop works!
-</p>
+<a [routerLink]="['/account']">Back</a>
+<h2 class="page-header">Add Property</h2>
+<form (submit)="onPropSubmit($event)">
+  <div class="form-group">
+    <label>Property Name</label>
+    <input class="form-control" type="text" [(ngModel)]="name" name="name">
+  </div>
+  <div class="form-group">
+    <h4>Address</h4>
+    <label>Street</label>
+    <input class="form-control" type="text" [(ngModel)]="street" name="street">
+    <label>City</label>
+    <input class="form-control" type="text" [(ngModel)]="city" name="city">
+    <label>State</label>
+    <input class="form-control" type="text" [(ngModel)]="state" name="state">
+    <label>Country</label>
+    <input class="form-control" type="text" [(ngModel)]="country" name="country">
+  </div>
+  <div class="form-group">
+    <label>Property Type</label>
+    <select class="form-control" type="text" [(ngModel)]="type" name="type">
+      <option value="Condo">Condo</option>
+      <option value="Hotel">Hotel</option>
+      <option value="Resort">Resort</option>
+      <option value="Apartment">Apartment</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Manager</label>
+    <input class="form-control" type="text" [(ngModel)]="manager" name="manager">
+  </div>
+  <input type="submit" value="Submit" class="btn btn-success">
+</form>

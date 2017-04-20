@@ -1,3 +1,23 @@
-<p>
-  props works!
-</p>
+<div *ngIf="prop">
+  <a [routerLink]="['/account']">Go Back</a>
+  <h2 class="page-header">{{prop.name}}</h2>
+  <ul class="list-group">
+    <li class="list-group-item">Address: {{prop.street}}, {{prop.city}}, {{prop.state}}, {{prop.country}}</li>
+    <li class="list-group-item">Type: {{prop.type}}</li>
+    <li class="list-group-item">Manager: {{prop.manager}}</li>
+  </ul>
+  <a class="btn btn-default" [routerLink]="['/edit-prop/'+prop.name]">Edit</a>
+  <a class="btn btn-danger" (click)="onDeleteClick()">Delete</a>
+</div>
+<div *ngIf="props">
+  <ul class="list-group">
+    <li class="list-group-item room" *ngFor="let prop of props">
+      <a [routerLink]="['/prop/'+prop.name]">{{prop.name}}</a>
+      <ul class="list-group">
+        <li>Address: {{prop.street}}, {{prop.city}}, {{prop.state}}, {{prop.country}}</li>
+        <li>Type: {{prop.type}}</li>
+        <li>Manager: {{prop.manager}}</li>
+      </ul>
+    </li>
+  </ul>
+</div>
