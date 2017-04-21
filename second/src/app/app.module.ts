@@ -20,6 +20,7 @@ import { EditRoomComponent } from './components/edit-room/edit-room.component';
 import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
 import {PropAuthService} from './services/prop-auth.service';
+import {RoomAuthService} from './services/room-auth.service';
 import {FlashMessagesModule} from 'angular2-flash-messages';
 import {tokenNotExpired} from 'angular2-jwt';
 import {AuthGuard} from './guards/auth.guard';
@@ -59,7 +60,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [ValidateService, AuthService, PropAuthService, AuthGuard],
+  providers: [ValidateService, AuthService, PropAuthService, RoomAuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

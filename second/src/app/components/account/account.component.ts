@@ -29,7 +29,6 @@ export class AccountComponent implements OnInit {
 
     this.propAuthService.getProps().subscribe(prop => {
       this.props = prop;
-      console.log(prop);
     });
 
   }

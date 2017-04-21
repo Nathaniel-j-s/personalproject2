@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PropAuthService {
   prop: any;
+  name: String;
 
   constructor(private http:Http) { }
 
@@ -17,10 +18,15 @@ export class PropAuthService {
   }
 
   getProps() {
-    console.log(this.http.get('http://localhost:3000/props/account'))
     return this.http.get('http://localhost:3000/props/account')
       .map(res => {
-        console.log(res);
+        return res.json()
+      });
+  }
+
+  getPropDetails(name) {
+    return this.http.get('http://localhost:3000/props/prop?name=' + name)
+      .map(res => {
         return res.json()
       });
   }

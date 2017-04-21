@@ -5,7 +5,7 @@
     <li class="list-group-item">Email: {{user.email}}</li>
   </ul>
 </div>
-<a [routerLink]="['/add-prop']">Add Property</a>
+<a class="btn btn-success" [routerLink]="['/add-prop']">Add Property</a>
 <div *ngIf="props">
   <ul class="list-group">
     <li class="list-group-item room" *ngFor="let prop of props">

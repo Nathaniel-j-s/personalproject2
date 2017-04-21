@@ -18,7 +18,7 @@ module.exports.getProps = function(callback) {
   Prop.find(callback);
 }
 
-module.exports.getPropByName = function(name, callback) {
+module.exports.getPropDetails = function(name, callback) {
   const query = {name: name}
   Prop.findOne(query, callback);
 }

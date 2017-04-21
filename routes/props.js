@@ -31,4 +31,10 @@ router.get('/account', (req, res, next) => {
   });
 });
 
+router.get('/prop', (req, res, next) => {
+  Prop.getPropDetails(req.query.name, function(err, prop) {
+    res.json(prop);
+  });
+});
+
 module.exports = router;
