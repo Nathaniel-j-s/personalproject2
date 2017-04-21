@@ -33,7 +33,7 @@ const appRoutes: Routes = [
   {path:'add-prop', component: AddPropComponent, canActivate:[AuthGuard]},
   {path:'edit-prop/:id', component: EditPropComponent, canActivate:[AuthGuard]},
   {path:'prop/:id', component: PropComponent, canActivate:[AuthGuard]},
-  {path:'add-room', component: AddRoomComponent, canActivate:[AuthGuard]},
+  {path:'add-room/:id', component: AddRoomComponent, canActivate:[AuthGuard]},
   {path:'edit-room/:id', component: EditRoomComponent, canActivate:[AuthGuard]},
   {path:'room/:id', component: RoomComponent, canActivate:[AuthGuard]}
 ]

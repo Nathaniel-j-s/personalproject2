@@ -39,7 +39,6 @@ export class AddPropComponent implements OnInit {
       type: this.type,
       manager: this.manager
     }
-    console.log(prop);
 
     // Required fields
     if(!this.validateService.validateProp(prop)) {

@@ -27,7 +27,7 @@ router.post('/add-room', (req, res, next) => {
 
 router.get('/account', (req, res, next) => {
   Room.getRooms(function(err, room) {
-    res.json(prop);
+    res.json(room);
   });
 });
 

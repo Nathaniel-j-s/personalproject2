@@ -9,6 +9,7 @@
   <a class="btn btn-default" [routerLink]="['/edit-prop/'+prop.name]">Edit</a>
   <a class="btn btn-danger" (click)="onDeleteClick()">Delete</a>
 </div>
+<a class="btn btn-success" [routerLink]="['/add-room/'+prop.key]">Add Unit</a>
 <div *ngIf="props">
   <ul class="list-group">
     <li class="list-group-item room" *ngFor="let prop of props">

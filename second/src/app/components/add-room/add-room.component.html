@@ -1,3 +1,38 @@
-<p>
-  add-room works!
-</p>
+<h2 class="page-header">Add Unit</h2>
+<form (submit)="onRoomSubmit($event)">
+  <div class="form-group">
+    <label>Unit Name/Number</label>
+    <input class="form-control" type="text" [(ngModel)]="title" name="title">
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input class="form-control" type="text" [(ngModel)]="price" name="price">
+  </div>
+  <div class="form-group">
+    <label>Beds</label>
+    <input class="form-control" type="number" [(ngModel)]="beds" name="beds">
+  </div>
+  <div class="form-group">
+    <label>Max Occupancy</label>
+    <input class="form-control" type="number" [(ngModel)]="occupants" name="occupants">
+  </div>
+  <div class="form-group">
+    <label>Smoking Policy</label>
+    <select class="form-control" type="text" [(ngModel)]="smoking" name="smoking">
+      <option value="Allowed">Allowed</option>
+      <option value="Not Allowed">Not Allowed</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Pet Policy</label>
+    <select class="form-control" type="text" [(ngModel)]="pets" name="pets">
+      <option value="Allowed">Allowed</option>
+      <option value="Not Allowed">Not Allowed</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Additional Information</label>
+    <input class="form-control" type="text" [(ngModel)]="additional" name="additional">
+  </div>
+  <input type="submit" value="Submit" class="btn btn-success">
+</form>

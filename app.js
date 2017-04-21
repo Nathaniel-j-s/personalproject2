@@ -20,6 +20,7 @@ const app = express();
 
 const users = require('./routes/users');
 const props = require('./routes/props');
+const rooms = require('./routes/rooms');
 
 const port = 3000; // Port number for server
 
@@ -36,6 +37,7 @@ require('./config/passport')(passport);
 
 app.use('/users', users);
 app.use('/props', props);
+app.use('/rooms', rooms);
 
 app.get('/', (req, res) => {
   res.send('Invalid Endpoint.');

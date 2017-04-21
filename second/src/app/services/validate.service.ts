@@ -26,4 +26,12 @@ export class ValidateService {
     }
   }
 
+  validateRoom(room){
+    if(room.title == undefined || room.price == undefined || room.beds == undefined || room.occupants == undefined || room.smoking == undefined || room.pets == undefined) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 }

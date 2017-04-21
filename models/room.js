@@ -12,7 +12,7 @@ const RoomSchema = mongoose.Schema({
   additional: {type: String, required: true}
 });
 
-const Room = module.exports = mongoose.model('Room', PropSchema);
+const Room = module.exports = mongoose.model('Room', RoomSchema);
 
 module.exports.getRooms = function(callback) {
   Room.find(callback);
