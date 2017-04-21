@@ -7,6 +7,7 @@ const Room = require('../models/room');
 
 router.post('/add-room', (req, res, next) => {
   let newRoom = new Room({
+    prop: req.body.prop,
     title: req.body.title,
     price: req.body.price,
     beds: req.body.beds,
@@ -26,13 +27,15 @@ router.post('/add-room', (req, res, next) => {
 });
 
 router.get('/account', (req, res, next) => {
-  Room.getRooms(function(err, room) {
+  Room.getRoomsByProp(req.query.prop, function(err, room) {
+    console.log(req.query.prop);
+    console.log(err)
     res.json(room);
   });
 });
 
 router.get('/room', (req, res, next) => {
-  Room.getRoomDetails(req.query.name, function(err, room) {
+  Room.getRoomDetails(req.query.title, function(err, room) {
     res.json(room);
   });
 });

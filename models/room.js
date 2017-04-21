@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const config = require('../config/database');
 
 const RoomSchema = mongoose.Schema({
+  prop: {type: String, required: true},
   title: {type: String, required: true},
   price: {type: String, required: true},
   beds: {type: String, required: true},
@@ -18,7 +19,11 @@ module.exports.getRooms = function(callback) {
   Room.find(callback);
 }
 
-module.exports.getPropDetails = function(title, callback) {
+module.exports.getRoomsByProp = function(prop, callback) {
+  Room.find(prop, callback);
+}
+
+module.exports.getRoomDetails = function(title, callback) {
   const query = {title: title}
   Room.findOne(query, callback);
 }

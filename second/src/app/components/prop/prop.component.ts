@@ -24,7 +24,6 @@ export class PropComponent implements OnInit {
 
   ngOnInit() {
     this.name = this.route.snapshot.params['id'];
-    this.prop.key = this.route.snapshot.params['id'];
 
     this.propAuthService.getPropDetails(this.name).subscribe(prop => {
       this.prop = prop;
@@ -34,8 +33,13 @@ export class PropComponent implements OnInit {
       return false;
     });
 
-    this.roomAuthService.getRooms().subscribe(room => {
+    this.roomAuthService.getRoomsByProp(this.name).subscribe(room => {
+      console.log(room);
       this.rooms = room;
+      this.rooms = this.rooms.filter(r => {
+        return r.prop === this.name
+      })
+      console.log(this.rooms);
     });
   }
 

@@ -9,15 +9,17 @@
   <a class="btn btn-default" [routerLink]="['/edit-prop/'+prop.name]">Edit</a>
   <a class="btn btn-danger" (click)="onDeleteClick()">Delete</a>
 </div>
-<a class="btn btn-success" [routerLink]="['/add-room/'+prop.key]">Add Unit</a>
-<div *ngIf="props">
+<a class="btn btn-success" [routerLink]="['/add-room/'+this.name]">Add Unit</a>
+<div *ngIf="rooms">
   <ul class="list-group">
-    <li class="list-group-item room" *ngFor="let prop of props">
-      <a [routerLink]="['/prop/'+prop.name]">{{prop.name}}</a>
+    <li class="list-group-item room" *ngFor="let room of rooms">
+      <a [routerLink]="['/room/'+room.title]">{{room.title}}</a>
       <ul class="list-group">
-        <li>Address: {{prop.street}}, {{prop.city}}, {{prop.state}}, {{prop.country}}</li>
-        <li>Type: {{prop.type}}</li>
-        <li>Manager: {{prop.manager}}</li>
+        <li>Price: {{room.price}}</li>
+        <li>Beds: {{room.beds}}</li>
+        <li>Max Occupants: {{room.occupants}}</li>
+        <li>Smoking Policy: {{room.smoking}}</li>
+        <li>Pet Policy: {{room.pets}}</li>
       </ul>
     </li>
   </ul>
