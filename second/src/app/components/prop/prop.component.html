@@ -7,7 +7,7 @@
     <li class="list-group-item">Manager: {{prop.manager}}</li>
   </ul>
   <a class="btn btn-default" [routerLink]="['/edit-prop/'+prop.name]">Edit</a>
-  <a class="btn btn-danger" (click)="onDeleteClick()">Delete</a>
+  <a class="btn btn-danger" (click)="onDeletePropClick()">Delete</a>
 </div>
 <a class="btn btn-success" [routerLink]="['/add-room/'+this.name]">Add Unit</a>
 <div *ngIf="rooms">

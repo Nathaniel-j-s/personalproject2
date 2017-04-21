@@ -9,7 +9,8 @@ const PropSchema = mongoose.Schema({
   state: {type: String, required: true},
   country: {type: String, required: true},
   type: {type: String, required: true},
-  manager: {type: String, required: true}
+  manager: {type: String, required: true},
+  additional: {type: String, required: true}
 });
 
 const Prop = module.exports = mongoose.model('Prop', PropSchema);
@@ -25,4 +26,10 @@ module.exports.getPropDetails = function(name, callback) {
 
 module.exports.addProp = function(newProp, callback) {
   newProp.save(callback);
+}
+
+module.exports.updateProp = function(updatedProp, callback) {
+  console.log(updatedProp);
+  console.log(callback);
+  updatedProp.update(callback);
 }
