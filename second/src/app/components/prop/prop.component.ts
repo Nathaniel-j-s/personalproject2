@@ -34,12 +34,10 @@ export class PropComponent implements OnInit {
     });
 
     this.roomAuthService.getRoomsByProp(this.name).subscribe(room => {
-      console.log(room);
       this.rooms = room;
       this.rooms = this.rooms.filter(r => {
         return r.prop === this.name
-      })
-      console.log(this.rooms);
+      });
     });
   }
 

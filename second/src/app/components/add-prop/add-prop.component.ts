@@ -17,6 +17,7 @@ export class AddPropComponent implements OnInit {
   country: String;
   type: String;
   manager: String;
+  additional: String;
 
   constructor(
     private validateService: ValidateService,
@@ -37,7 +38,8 @@ export class AddPropComponent implements OnInit {
       state: this.state,
       country: this.country,
       type: this.type,
-      manager: this.manager
+      manager: this.manager,
+      additional: this.additional
     }
 
     // Required fields
@@ -51,6 +53,7 @@ export class AddPropComponent implements OnInit {
         this.flashMessage.show('You have successfully registered your property and may now enter unit information.', {cssClass: 'alert-success', timeout: 5000});
         this.router.navigate(['/account']);
       } else {
+        console.log(data.success);
         this.flashMessage.show('Something went wrong.', {cssClass: 'alert-danger', timeout: 5000});
         this.router.navigate(['/add-prop']);
       }

@@ -7,6 +7,7 @@ export class PropAuthService {
   prop: any;
   props: any;
   name: String;
+  id: any;
 
   constructor(private http:Http) { }
 
@@ -32,12 +33,12 @@ export class PropAuthService {
       });
   }
 
-  updateProp(id, prop) {
-    return this.props.update(id, prop);
-  }
+  // updateProp(id, prop) {
+  //   return this.props.update(id, prop);
+  // }
 
   deleteProp(id) {
-    return this.props.remove(id);
+    return this.http.delete('http://localhost:3000/props/prop?id=' + id);
   }
 
 }

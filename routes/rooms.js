@@ -28,8 +28,6 @@ router.post('/add-room', (req, res, next) => {
 
 router.get('/account', (req, res, next) => {
   Room.getRoomsByProp(req.query.prop, function(err, room) {
-    console.log(req.query.prop);
-    console.log(err)
     res.json(room);
   });
 });

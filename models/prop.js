@@ -28,8 +28,6 @@ module.exports.addProp = function(newProp, callback) {
   newProp.save(callback);
 }
 
-module.exports.updateProp = function(updatedProp, callback) {
-  console.log(updatedProp);
-  console.log(callback);
-  updatedProp.update(callback);
+module.exports.deleteProp = function(id, callback) {
+  Prop.remove(id, callback);
 }

@@ -27,34 +27,32 @@ export class EditPropComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
 
-    this.propAuthService.getPropDetails(this.id).subscribe(room => {
-      this.name = room.name;
-      this.street = room.street;
-      this.city = room.city;
-      this.state = room.state;
-      this.country = room.country;
-      this.type = room.type;
-      this.manager = room.manager;
-      this.additional = room.additional;
+    this.propAuthService.getPropDetails(this.id).subscribe(prop => {
+      this.name = prop.name;
+      this.street = prop.street;
+      this.city = prop.city;
+      this.state = prop.state;
+      this.country = prop.country;
+      this.type = prop.type;
+      this.manager = prop.manager;
+      this.additional = prop.additional;
     });
   }
 
-  onEditPropSubmit() {
-    let prop = {
-      name: this.name,
-      street: this.street,
-      city: this.city,
-      state: this.state,
-      country: this.country,
-      type: this.type,
-      manager: this.manager,
-      additional: this.additional
-    }
-
-    debugger;
-
-    this.propAuthService.updateProp(this.id, prop);
-    this.router.navigate(['/account']);
-  }
+  // onEditPropSubmit() {
+  //   let prop = {
+  //     name: this.name,
+  //     street: this.street,
+  //     city: this.city,
+  //     state: this.state,
+  //     country: this.country,
+  //     type: this.type,
+  //     manager: this.manager,
+  //     additional: this.additional
+  //   }
+  //
+  //   this.propAuthService.updateProp(this.id, prop);
+  //   this.router.navigate(['/account']);
+  // }
 
 }

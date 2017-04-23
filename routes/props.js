@@ -13,7 +13,8 @@ router.post('/add-prop', (req, res, next) => {
     state: req.body.state,
     country: req.body.country,
     type: req.body.type,
-    manager: req.body.manager
+    manager: req.body.manager,
+    additional: req.body.additional
   });
 
   Prop.addProp(newProp, (err, prop) => {
@@ -37,28 +38,8 @@ router.get('/prop', (req, res, next) => {
   });
 });
 
-router.post('/edit-prop', (req, res, next) => {
-  let updatedProp = new Prop({
-    name: req.body.name,
-    street: req.body.street,
-    city: req.body.city,
-    state: req.body.state,
-    country: req.body.country,
-    type: req.body.type,
-    manager: req.body.manager,
-    additional: req.body.additional
-  });
-
-  console.log(updatedProp);
-
-  Prop.updateProp(updatedProp, (err, prop) => {
-    console.log(updatedProp);
-    if(err) {
-      res.json({success: false, msg:'Failed to edit property.'});
-    } else {
-      res.json({success: true, msg:'Property successfully edited.'});
-    }
-  });
-});
+router.delete('/prop', (req, res, next) => {
+  Prop.deleteProp(req.query.name);
+})
 
 module.exports = router;
