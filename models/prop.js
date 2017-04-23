@@ -28,6 +28,7 @@ module.exports.addProp = function(newProp, callback) {
   newProp.save(callback);
 }
 
-module.exports.deleteProp = function(id, callback) {
-  Prop.remove(id, callback);
+module.exports.deleteProp = function(name, callback) {
+  const query = {name: name}
+  Prop.findOne(query).remove(callback);
 }

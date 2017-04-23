@@ -39,7 +39,13 @@ router.get('/prop', (req, res, next) => {
 });
 
 router.delete('/prop', (req, res, next) => {
-  Prop.deleteProp(req.query.name);
+  Prop.deleteProp(req.query.name, (err) => {
+    if(err) {
+      res.json({success: false, msg:'Failed to register prop.'});
+    } else {
+      res.json({success: true, msg:'Prop registered.'});
+    }
+  });
 })
 
 module.exports = router;

@@ -53,7 +53,6 @@ export class AddPropComponent implements OnInit {
         this.flashMessage.show('You have successfully registered your property and may now enter unit information.', {cssClass: 'alert-success', timeout: 5000});
         this.router.navigate(['/account']);
       } else {
-        console.log(data.success);
         this.flashMessage.show('Something went wrong.', {cssClass: 'alert-danger', timeout: 5000});
         this.router.navigate(['/add-prop']);
       }

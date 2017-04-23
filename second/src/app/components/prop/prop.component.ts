@@ -42,8 +42,8 @@ export class PropComponent implements OnInit {
   }
 
   onDeletePropClick() {
-    this.propAuthService.deleteProp(this.id);
-    this.router.navigate(['/props']);
+    this.propAuthService.deleteProp(this.name);
+    this.router.navigate(['/account']);
   }
 
 }

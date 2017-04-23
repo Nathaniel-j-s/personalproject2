@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import {Http, Headers} from '@angular/http';
+import {Http, Headers, Response, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PropAuthService {
   prop: any;
-  props: any;
   name: String;
   id: any;
 
@@ -30,15 +29,18 @@ export class PropAuthService {
     return this.http.get('http://localhost:3000/props/prop?name=' + name)
       .map(res => {
         return res.json()
-      });
+    });
   }
 
   // updateProp(id, prop) {
   //   return this.props.update(id, prop);
   // }
 
-  deleteProp(id) {
-    return this.http.delete('http://localhost:3000/props/prop?id=' + id);
+  deleteProp(name) {
+    return this.http.delete('http://localhost:3000/props/prop?name=' + name)
+      .subscribe(res => {
+        return res.json()
+    });
   }
 
 }
