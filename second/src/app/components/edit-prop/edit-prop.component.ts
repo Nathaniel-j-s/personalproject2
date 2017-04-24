@@ -28,6 +28,7 @@ export class EditPropComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
 
     this.propAuthService.getPropDetails(this.id).subscribe(prop => {
+      this.id = prop._id;
       this.name = prop.name;
       this.street = prop.street;
       this.city = prop.city;
@@ -39,20 +40,20 @@ export class EditPropComponent implements OnInit {
     });
   }
 
-  // onEditPropSubmit() {
-  //   let prop = {
-  //     name: this.name,
-  //     street: this.street,
-  //     city: this.city,
-  //     state: this.state,
-  //     country: this.country,
-  //     type: this.type,
-  //     manager: this.manager,
-  //     additional: this.additional
-  //   }
-  //
-  //   this.propAuthService.updateProp(this.id, prop);
-  //   this.router.navigate(['/account']);
-  // }
+  onEditPropSubmit() {
+    let prop = {
+      name: this.name,
+      street: this.street,
+      city: this.city,
+      state: this.state,
+      country: this.country,
+      type: this.type,
+      manager: this.manager,
+      additional: this.additional
+    }
+
+    this.propAuthService.updateProp(this.id, prop);
+    this.router.navigate(['/account']);
+  }
 
 }

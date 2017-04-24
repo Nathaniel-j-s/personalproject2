@@ -32,12 +32,15 @@ export class PropAuthService {
     });
   }
 
-  // updateProp(id, prop) {
-  //   return this.props.update(id, prop);
-  // }
+  updateProp(id, prop) {
+    return this.http.put('http://localhost:3000/props/edit-prop?_id=' + id, prop)
+      .subscribe(res => {
+        return res.json()
+      });
+  }
 
-  deleteProp(name) {
-    return this.http.delete('http://localhost:3000/props/prop?name=' + name)
+  deleteProp(id) {
+    return this.http.delete('http://localhost:3000/props/prop?_id=' + id)
       .subscribe(res => {
         return res.json()
     });

@@ -28,7 +28,11 @@ module.exports.addProp = function(newProp, callback) {
   newProp.save(callback);
 }
 
-module.exports.deleteProp = function(name, callback) {
-  const query = {name: name}
+module.exports.updateProp = function(id, newProp, callback) {
+  Prop.findOneAndUpdate({_id:id}, newProp, {new: true}, callback);
+}
+
+module.exports.deleteProp = function(id, callback) {
+  const query = {_id: id}
   Prop.findOne(query).remove(callback);
 }

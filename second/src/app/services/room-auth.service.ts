@@ -27,7 +27,6 @@ export class RoomAuthService {
   getRoomsByProp(prop) {
     return this.http.get('http://localhost:3000/rooms/account?prop=' + prop)
       .map(res => {
-        console.log(res);
         return res.json()
       });
   }

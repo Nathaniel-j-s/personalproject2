@@ -14,12 +14,13 @@ export class PropComponent implements OnInit {
   rooms: any;
   name: any;
   key: any;
+  _id: any;
 
   constructor(
     private propAuthService:PropAuthService,
     private roomAuthService:RoomAuthService,
     private router:Router,
-    private route: ActivatedRoute
+    private route:ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -42,7 +43,7 @@ export class PropComponent implements OnInit {
   }
 
   onDeletePropClick() {
-    this.propAuthService.deleteProp(this.name);
+    this.propAuthService.deleteProp(this.prop._id);
     this.router.navigate(['/account']);
   }
 
