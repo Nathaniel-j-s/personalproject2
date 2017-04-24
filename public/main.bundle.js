@@ -138,7 +138,7 @@ var ValidateService = (function () {
 module.exports = {
   database: 'mongodb://nathan:nathan@ds163010.mlab.com:63010/second',
   secret: 'yoursecret',
-  ip: 'http://138.68.243.80/'
+  ip: '138.68.243.80'
 }
 
 
