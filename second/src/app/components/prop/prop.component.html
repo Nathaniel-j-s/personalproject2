@@ -9,7 +9,7 @@
   <div>
     <p>Additional Information: {{prop.additional}}</p>
   </div>
-  <a class="btn btn-default" [routerLink]="['/edit-prop/'+prop.name]">Edit</a>
+  <a class="btn btn-default" [routerLink]="['/edit-prop/'+prop._id]">Edit</a>
   <a class="btn btn-danger" (click)="onDeletePropClick()">Delete</a>
 </div>
 <a class="btn btn-success" [routerLink]="['/add-room/'+this._id]">Add Unit</a>
