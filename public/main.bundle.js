@@ -21,6 +21,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+var config = __webpack_require__(252);
 var RoomAuthService = (function () {
     function RoomAuthService(http) {
         this.http = http;
@@ -28,37 +29,37 @@ var RoomAuthService = (function () {
     RoomAuthService.prototype.registerRoom = function (room) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3000/rooms/add-room', room, { headers: headers })
+        return this.http.post('http://' + config.ip + ':3000/rooms/add-room', room, { headers: headers })
             .map(function (res) {
             return res.json();
         });
     };
     RoomAuthService.prototype.getRooms = function () {
-        return this.http.get('http://localhost:3000/rooms/account')
+        return this.http.get('http://' + config.ip + ':3000/rooms/account')
             .map(function (res) {
             return res.json();
         });
     };
     RoomAuthService.prototype.getRoomsByProp = function (prop) {
-        return this.http.get('http://localhost:3000/rooms/account?prop=' + prop)
+        return this.http.get('http://' + config.ip + ':3000/rooms/account?prop=' + prop)
             .map(function (res) {
             return res.json();
         });
     };
     RoomAuthService.prototype.getRoomDetails = function (id) {
-        return this.http.get('http://localhost:3000/rooms/room?_id=' + id)
+        return this.http.get('http://' + config.ip + ':3000/rooms/room?_id=' + id)
             .map(function (res) {
             return res.json();
         });
     };
     RoomAuthService.prototype.updateRoom = function (id, room) {
-        return this.http.put('http://localhost:3000/rooms/edit-room?_id=' + id, room)
+        return this.http.put('http://' + config.ip + ':3000/rooms/edit-room?_id=' + id, room)
             .subscribe(function (res) {
             return res.json();
         });
     };
     RoomAuthService.prototype.deleteRoom = function (id) {
-        return this.http.delete('http://localhost:3000/rooms/room?_id=' + id)
+        return this.http.delete('http://' + config.ip + ':3000/rooms/room?_id=' + id)
             .subscribe(function (res) {
             return res.json();
         });
@@ -131,7 +132,19 @@ var ValidateService = (function () {
 
 /***/ }),
 
-/***/ 391:
+/***/ 252:
+/***/ (function(module, exports) {
+
+module.exports = {
+  database: 'mongodb://nathan:nathan@ds163010.mlab.com:63010/second',
+  secret: 'yoursecret',
+  ip: 'localhost'
+}
+
+
+/***/ }),
+
+/***/ 392:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -140,20 +153,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 391;
+webpackEmptyContext.id = 392;
 
 
 /***/ }),
 
-/***/ 392:
+/***/ 393:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(479);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(480);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(523);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(510);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(524);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(511);
 
 
 
@@ -166,7 +179,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 509:
+/***/ 510:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -189,8 +202,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(694),
-            styles: [__webpack_require__(682)]
+            template: __webpack_require__(695),
+            styles: [__webpack_require__(683)]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
@@ -200,34 +213,34 @@ var AppComponent = (function () {
 
 /***/ }),
 
-/***/ 510:
+/***/ 511:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(471);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(509);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_navbar_navbar_component__ = __webpack_require__(518);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_home_home_component__ = __webpack_require__(516);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_register_register_component__ = __webpack_require__(520);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_login_login_component__ = __webpack_require__(517);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_account_account_component__ = __webpack_require__(511);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_add_prop_add_prop_component__ = __webpack_require__(512);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_edit_prop_edit_prop_component__ = __webpack_require__(514);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_prop_prop_component__ = __webpack_require__(519);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_room_room_component__ = __webpack_require__(521);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_add_room_add_room_component__ = __webpack_require__(513);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_edit_room_edit_room_component__ = __webpack_require__(515);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(510);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_navbar_navbar_component__ = __webpack_require__(519);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_home_home_component__ = __webpack_require__(517);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_register_register_component__ = __webpack_require__(521);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_login_login_component__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_account_account_component__ = __webpack_require__(512);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_add_prop_add_prop_component__ = __webpack_require__(513);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_edit_prop_edit_prop_component__ = __webpack_require__(515);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_prop_prop_component__ = __webpack_require__(520);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_room_room_component__ = __webpack_require__(522);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_add_room_add_room_component__ = __webpack_require__(514);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_edit_room_edit_room_component__ = __webpack_require__(516);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__services_validate_service__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_auth_service__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_prop_auth_service__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_room_auth_service__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_angular2_flash_messages__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21_angular2_flash_messages__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__guards_auth_guard__ = __webpack_require__(522);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__guards_auth_guard__ = __webpack_require__(523);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -310,7 +323,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 511:
+/***/ 512:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -353,8 +366,8 @@ var AccountComponent = (function () {
     AccountComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-account',
-            template: __webpack_require__(695),
-            styles: [__webpack_require__(683)]
+            template: __webpack_require__(696),
+            styles: [__webpack_require__(684)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_prop_auth_service__["a" /* PropAuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_prop_auth_service__["a" /* PropAuthService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _c) || Object])
     ], AccountComponent);
@@ -365,7 +378,7 @@ var AccountComponent = (function () {
 
 /***/ }),
 
-/***/ 512:
+/***/ 513:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -431,8 +444,8 @@ var AddPropComponent = (function () {
     AddPropComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-add-prop',
-            template: __webpack_require__(696),
-            styles: [__webpack_require__(684)]
+            template: __webpack_require__(697),
+            styles: [__webpack_require__(685)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_prop_auth_service__["a" /* PropAuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_prop_auth_service__["a" /* PropAuthService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], AddPropComponent);
@@ -443,7 +456,7 @@ var AddPropComponent = (function () {
 
 /***/ }),
 
-/***/ 513:
+/***/ 514:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -511,8 +524,8 @@ var AddRoomComponent = (function () {
     AddRoomComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-add-room',
-            template: __webpack_require__(697),
-            styles: [__webpack_require__(685)]
+            template: __webpack_require__(698),
+            styles: [__webpack_require__(686)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_room_auth_service__["a" /* RoomAuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_room_auth_service__["a" /* RoomAuthService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* ActivatedRoute */]) === 'function' && _e) || Object])
     ], AddRoomComponent);
@@ -523,7 +536,7 @@ var AddRoomComponent = (function () {
 
 /***/ }),
 
-/***/ 514:
+/***/ 515:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -581,8 +594,8 @@ var EditPropComponent = (function () {
     EditPropComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-edit-prop',
-            template: __webpack_require__(698),
-            styles: [__webpack_require__(686)]
+            template: __webpack_require__(699),
+            styles: [__webpack_require__(687)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_prop_auth_service__["a" /* PropAuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_prop_auth_service__["a" /* PropAuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object])
     ], EditPropComponent);
@@ -593,7 +606,7 @@ var EditPropComponent = (function () {
 
 /***/ }),
 
-/***/ 515:
+/***/ 516:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -651,8 +664,8 @@ var EditRoomComponent = (function () {
     EditRoomComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-edit-room',
-            template: __webpack_require__(699),
-            styles: [__webpack_require__(687)]
+            template: __webpack_require__(700),
+            styles: [__webpack_require__(688)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_room_auth_service__["a" /* RoomAuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_room_auth_service__["a" /* RoomAuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object])
     ], EditRoomComponent);
@@ -663,7 +676,7 @@ var EditRoomComponent = (function () {
 
 /***/ }),
 
-/***/ 516:
+/***/ 517:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -687,8 +700,8 @@ var HomeComponent = (function () {
     HomeComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-home',
-            template: __webpack_require__(700),
-            styles: [__webpack_require__(688)]
+            template: __webpack_require__(701),
+            styles: [__webpack_require__(689)]
         }), 
         __metadata('design:paramtypes', [])
     ], HomeComponent);
@@ -698,7 +711,7 @@ var HomeComponent = (function () {
 
 /***/ }),
 
-/***/ 517:
+/***/ 518:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -750,8 +763,8 @@ var LoginComponent = (function () {
     LoginComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-login',
-            template: __webpack_require__(701),
-            styles: [__webpack_require__(689)]
+            template: __webpack_require__(702),
+            styles: [__webpack_require__(690)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _c) || Object])
     ], LoginComponent);
@@ -762,7 +775,7 @@ var LoginComponent = (function () {
 
 /***/ }),
 
-/***/ 518:
+/***/ 519:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -802,8 +815,8 @@ var NavbarComponent = (function () {
     NavbarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-navbar',
-            template: __webpack_require__(702),
-            styles: [__webpack_require__(690)]
+            template: __webpack_require__(703),
+            styles: [__webpack_require__(691)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _c) || Object])
     ], NavbarComponent);
@@ -814,7 +827,7 @@ var NavbarComponent = (function () {
 
 /***/ }),
 
-/***/ 519:
+/***/ 520:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -868,8 +881,8 @@ var PropComponent = (function () {
     PropComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-prop',
-            template: __webpack_require__(703),
-            styles: [__webpack_require__(691)]
+            template: __webpack_require__(704),
+            styles: [__webpack_require__(692)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_prop_auth_service__["a" /* PropAuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_prop_auth_service__["a" /* PropAuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_room_auth_service__["a" /* RoomAuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__services_room_auth_service__["a" /* RoomAuthService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === 'function' && _d) || Object])
     ], PropComponent);
@@ -880,7 +893,7 @@ var PropComponent = (function () {
 
 /***/ }),
 
-/***/ 520:
+/***/ 521:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -948,8 +961,8 @@ var RegisterComponent = (function () {
     RegisterComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-register',
-            template: __webpack_require__(704),
-            styles: [__webpack_require__(692)]
+            template: __webpack_require__(705),
+            styles: [__webpack_require__(693)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], RegisterComponent);
@@ -960,7 +973,7 @@ var RegisterComponent = (function () {
 
 /***/ }),
 
-/***/ 521:
+/***/ 522:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1006,8 +1019,8 @@ var RoomComponent = (function () {
     RoomComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-room',
-            template: __webpack_require__(705),
-            styles: [__webpack_require__(693)]
+            template: __webpack_require__(706),
+            styles: [__webpack_require__(694)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_prop_auth_service__["a" /* PropAuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_prop_auth_service__["a" /* PropAuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_room_auth_service__["a" /* RoomAuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__services_room_auth_service__["a" /* RoomAuthService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === 'function' && _d) || Object])
     ], RoomComponent);
@@ -1018,7 +1031,7 @@ var RoomComponent = (function () {
 
 /***/ }),
 
-/***/ 522:
+/***/ 523:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1063,7 +1076,7 @@ var AuthGuard = (function () {
 
 /***/ }),
 
-/***/ 523:
+/***/ 524:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1076,13 +1089,6 @@ var environment = {
     production: false
 };
 //# sourceMappingURL=/Users/reno/Desktop/DevMountain/Personal/new/second/src/environment.js.map
-
-/***/ }),
-
-/***/ 682:
-/***/ (function(module, exports) {
-
-module.exports = ""
 
 /***/ }),
 
@@ -1166,91 +1172,98 @@ module.exports = ""
 /***/ 694:
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n  <flash-messages></flash-messages>\n  <router-outlet></router-outlet>\n</div>\n"
+module.exports = ""
 
 /***/ }),
 
 /***/ 695:
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"user\">\n  <h2 class=\"page-header\">{{user.name}}</h2>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item\">Username: {{user.username}}</li>\n    <li class=\"list-group-item\">Email: {{user.email}}</li>\n  </ul>\n</div>\n<a class=\"btn btn-success\" [routerLink]=\"['/add-prop']\">Add Property</a>\n<div *ngIf=\"props\">\n  <ul class=\"list-group\">\n    <li class=\"list-group-item room\" *ngFor=\"let prop of props\">\n      <a [routerLink]=\"['/prop/'+prop._id]\">{{prop.name}}</a>\n      <ul class=\"list-group\">\n        <li>Address: {{prop.street}}, {{prop.city}}, {{prop.state}}, {{prop.country}}</li>\n        <li>Type: {{prop.type}}</li>\n        <li>Manager: {{prop.manager}}</li>\n      </ul>\n    </li>\n  </ul>\n</div>\n"
+module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n  <flash-messages></flash-messages>\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
 /***/ 696:
 /***/ (function(module, exports) {
 
-module.exports = "<a [routerLink]=\"['/account']\">Back</a>\n<h2 class=\"page-header\">Add Property</h2>\n<form (submit)=\"onPropSubmit($event)\">\n  <div class=\"form-group\">\n    <label>Property Name</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"name\" name=\"name\">\n  </div>\n  <div class=\"form-group\">\n    <h4>Address</h4>\n    <label>Street</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"street\" name=\"street\">\n    <label>City</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"city\" name=\"city\">\n    <label>State</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"state\" name=\"state\">\n    <label>Country</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"country\" name=\"country\">\n  </div>\n  <div class=\"form-group\">\n    <label>Property Type</label>\n    <select class=\"form-control\" type=\"text\" [(ngModel)]=\"type\" name=\"type\">\n      <option value=\"Condo\">Condo</option>\n      <option value=\"Hotel\">Hotel</option>\n      <option value=\"Resort\">Resort</option>\n      <option value=\"Apartment\">Apartment</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label>Manager</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"manager\" name=\"manager\">\n  </div>\n  <div class=\"form-group\">\n    <label>Additional Information</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"additional\" name=\"additional\">\n  </div>\n  <input type=\"submit\" value=\"Submit\" class=\"btn btn-success\">\n</form>\n"
+module.exports = "<div *ngIf=\"user\">\n  <h2 class=\"page-header\">{{user.name}}</h2>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item\">Username: {{user.username}}</li>\n    <li class=\"list-group-item\">Email: {{user.email}}</li>\n  </ul>\n</div>\n<a class=\"btn btn-success\" [routerLink]=\"['/add-prop']\">Add Property</a>\n<div *ngIf=\"props\">\n  <ul class=\"list-group\">\n    <li class=\"list-group-item room\" *ngFor=\"let prop of props\">\n      <a [routerLink]=\"['/prop/'+prop._id]\">{{prop.name}}</a>\n      <ul class=\"list-group\">\n        <li>Address: {{prop.street}}, {{prop.city}}, {{prop.state}}, {{prop.country}}</li>\n        <li>Type: {{prop.type}}</li>\n        <li>Manager: {{prop.manager}}</li>\n      </ul>\n    </li>\n  </ul>\n</div>\n"
 
 /***/ }),
 
 /***/ 697:
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Add Unit</h2>\n<form (submit)=\"onRoomSubmit($event)\">\n  <div class=\"form-group\">\n    <label>Unit Name/Number</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"title\" name=\"title\">\n  </div>\n  <div class=\"form-group\">\n    <label>Price</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"price\" name=\"price\">\n  </div>\n  <div class=\"form-group\">\n    <label>Beds</label>\n    <input class=\"form-control\" type=\"number\" [(ngModel)]=\"beds\" name=\"beds\">\n  </div>\n  <div class=\"form-group\">\n    <label>Max Occupancy</label>\n    <input class=\"form-control\" type=\"number\" [(ngModel)]=\"occupants\" name=\"occupants\">\n  </div>\n  <div class=\"form-group\">\n    <label>Smoking Policy</label>\n    <select class=\"form-control\" type=\"text\" [(ngModel)]=\"smoking\" name=\"smoking\">\n      <option value=\"Allowed\">Allowed</option>\n      <option value=\"Not Allowed\">Not Allowed</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label>Pet Policy</label>\n    <select class=\"form-control\" type=\"text\" [(ngModel)]=\"pets\" name=\"pets\">\n      <option value=\"Allowed\">Allowed</option>\n      <option value=\"Not Allowed\">Not Allowed</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label>Additional Information</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"additional\" name=\"additional\">\n  </div>\n  <input type=\"submit\" value=\"Submit\" class=\"btn btn-success\">\n</form>\n"
+module.exports = "<a [routerLink]=\"['/account']\">Back</a>\n<h2 class=\"page-header\">Add Property</h2>\n<form (submit)=\"onPropSubmit($event)\">\n  <div class=\"form-group\">\n    <label>Property Name</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"name\" name=\"name\">\n  </div>\n  <div class=\"form-group\">\n    <h4>Address</h4>\n    <label>Street</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"street\" name=\"street\">\n    <label>City</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"city\" name=\"city\">\n    <label>State</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"state\" name=\"state\">\n    <label>Country</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"country\" name=\"country\">\n  </div>\n  <div class=\"form-group\">\n    <label>Property Type</label>\n    <select class=\"form-control\" type=\"text\" [(ngModel)]=\"type\" name=\"type\">\n      <option value=\"Condo\">Condo</option>\n      <option value=\"Hotel\">Hotel</option>\n      <option value=\"Resort\">Resort</option>\n      <option value=\"Apartment\">Apartment</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label>Manager</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"manager\" name=\"manager\">\n  </div>\n  <div class=\"form-group\">\n    <label>Additional Information</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"additional\" name=\"additional\">\n  </div>\n  <input type=\"submit\" value=\"Submit\" class=\"btn btn-success\">\n</form>\n"
 
 /***/ }),
 
 /***/ 698:
 /***/ (function(module, exports) {
 
-module.exports = "<a [routerLink]=\"['/account']\">Back</a>\n<h2 class=\"page-header\">Edit Property</h2>\n<form (submit)=\"onEditPropSubmit()\">\n  <div class=\"form-group\">\n    <label>Property Name</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"name\" name=\"name\">\n  </div>\n  <div class=\"form-group\">\n    <h4>Address</h4>\n    <label>Street</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"street\" name=\"street\">\n    <label>City</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"city\" name=\"city\">\n    <label>State</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"state\" name=\"state\">\n    <label>Country</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"country\" name=\"country\">\n  </div>\n  <div class=\"form-group\">\n    <label>Property Type</label>\n    <select class=\"form-control\" type=\"text\" [(ngModel)]=\"type\" name=\"type\">\n      <option value=\"Condo\">Condo</option>\n      <option value=\"Hotel\">Hotel</option>\n      <option value=\"Resort\">Resort</option>\n      <option value=\"Apartment\">Apartment</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label>Manager</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"manager\" name=\"manager\">\n  </div>\n  <div class=\"form-group\">\n    <label>Additional Information</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"additional\" name=\"additional\">\n  </div>\n  <input type=\"submit\" value=\"Submit\" class=\"btn btn-success\">\n</form>\n"
+module.exports = "<h2 class=\"page-header\">Add Unit</h2>\n<form (submit)=\"onRoomSubmit($event)\">\n  <div class=\"form-group\">\n    <label>Unit Name/Number</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"title\" name=\"title\">\n  </div>\n  <div class=\"form-group\">\n    <label>Price</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"price\" name=\"price\">\n  </div>\n  <div class=\"form-group\">\n    <label>Beds</label>\n    <input class=\"form-control\" type=\"number\" [(ngModel)]=\"beds\" name=\"beds\">\n  </div>\n  <div class=\"form-group\">\n    <label>Max Occupancy</label>\n    <input class=\"form-control\" type=\"number\" [(ngModel)]=\"occupants\" name=\"occupants\">\n  </div>\n  <div class=\"form-group\">\n    <label>Smoking Policy</label>\n    <select class=\"form-control\" type=\"text\" [(ngModel)]=\"smoking\" name=\"smoking\">\n      <option value=\"Allowed\">Allowed</option>\n      <option value=\"Not Allowed\">Not Allowed</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label>Pet Policy</label>\n    <select class=\"form-control\" type=\"text\" [(ngModel)]=\"pets\" name=\"pets\">\n      <option value=\"Allowed\">Allowed</option>\n      <option value=\"Not Allowed\">Not Allowed</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label>Additional Information</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"additional\" name=\"additional\">\n  </div>\n  <input type=\"submit\" value=\"Submit\" class=\"btn btn-success\">\n</form>\n"
 
 /***/ }),
 
 /***/ 699:
 /***/ (function(module, exports) {
 
-module.exports = "<a [routerLink]=\"['/account']\">Back</a>\n<h2 class=\"page-header\">Edit Unit</h2>\n<form (submit)=\"onEditRoomSubmit()\">\n  <div class=\"form-group\">\n    <label>Title (Name/Number)</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"title\" name=\"title\">\n  </div>\n  <div class=\"form-group\">\n    <label>Price</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"price\" name=\"price\" required>\n  </div>\n  <div class=\"form-group\">\n    <label>Beds</label>\n    <input class=\"form-control\" type=\"number\" [(ngModel)]=\"beds\" name=\"beds\" required>\n  </div>\n  <div class=\"form-group\">\n    <label>Max Occupants</label>\n    <input class=\"form-control\" type=\"number\" [(ngModel)]=\"occupants\" name=\"occupants\" required>\n  </div>\n  <div class=\"form-group\">\n    <label>Smoking</label>\n    <select class=\"form-control\" type=\"text\" [(ngModel)]=\"smoking\" name=\"smoking\" required>\n      <option value=\"Allowed\">Allowed</option>\n      <option value=\"Not Allowed\">Not Allowed</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label>Pet Policy</label>\n    <select class=\"form-control\" type=\"text\" [(ngModel)]=\"pets\" name=\"pets\" required>\n      <option value=\"Allowed\">Allowed</option>\n      <option value=\"Not Allowed\">Not Allowed</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label>Additional Information</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"additional\" name=\"additional\">\n  </div>\n  <input type=\"submit\" value=\"submit\" class=\"btn btn-success\">\n</form>\n"
+module.exports = "<a [routerLink]=\"['/account']\">Back</a>\n<h2 class=\"page-header\">Edit Property</h2>\n<form (submit)=\"onEditPropSubmit()\">\n  <div class=\"form-group\">\n    <label>Property Name</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"name\" name=\"name\">\n  </div>\n  <div class=\"form-group\">\n    <h4>Address</h4>\n    <label>Street</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"street\" name=\"street\">\n    <label>City</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"city\" name=\"city\">\n    <label>State</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"state\" name=\"state\">\n    <label>Country</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"country\" name=\"country\">\n  </div>\n  <div class=\"form-group\">\n    <label>Property Type</label>\n    <select class=\"form-control\" type=\"text\" [(ngModel)]=\"type\" name=\"type\">\n      <option value=\"Condo\">Condo</option>\n      <option value=\"Hotel\">Hotel</option>\n      <option value=\"Resort\">Resort</option>\n      <option value=\"Apartment\">Apartment</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label>Manager</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"manager\" name=\"manager\">\n  </div>\n  <div class=\"form-group\">\n    <label>Additional Information</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"additional\" name=\"additional\">\n  </div>\n  <input type=\"submit\" value=\"Submit\" class=\"btn btn-success\">\n</form>\n"
 
 /***/ }),
 
 /***/ 700:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron text-center\">\n  <h1>MEAN Authentication App</h1>\n  <p class=\"lead\">Welcome to my custom MEAN authentication application built from scratch.</p>\n  <div>\n    <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a> <a class=\"btn btn-primary\" [routerLink]=\"['/login']\">Login</a>\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"col-md-4\">\n    <h3>Express Backend</h3>\n    <p>A rock solid Node.js/Express server using Mongoose to organize models and query the database.</p>\n  </div>\n  <div class=\"col-md-4\">\n    <h3>Angular CLI</h3>\n    <p>Angular-CLI to generate components, services and more. Local dev server and easy compilation.</p>\n  </div>\n  <div class=\"col-md-4\">\n    <h3>JWT Tokens</h3>\n    <p>Full featured authentication using JSON web tokens. Login and store user data.</p>\n  </div>\n</div>\n"
+module.exports = "<a [routerLink]=\"['/account']\">Back</a>\n<h2 class=\"page-header\">Edit Unit</h2>\n<form (submit)=\"onEditRoomSubmit()\">\n  <div class=\"form-group\">\n    <label>Title (Name/Number)</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"title\" name=\"title\">\n  </div>\n  <div class=\"form-group\">\n    <label>Price</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"price\" name=\"price\" required>\n  </div>\n  <div class=\"form-group\">\n    <label>Beds</label>\n    <input class=\"form-control\" type=\"number\" [(ngModel)]=\"beds\" name=\"beds\" required>\n  </div>\n  <div class=\"form-group\">\n    <label>Max Occupants</label>\n    <input class=\"form-control\" type=\"number\" [(ngModel)]=\"occupants\" name=\"occupants\" required>\n  </div>\n  <div class=\"form-group\">\n    <label>Smoking</label>\n    <select class=\"form-control\" type=\"text\" [(ngModel)]=\"smoking\" name=\"smoking\" required>\n      <option value=\"Allowed\">Allowed</option>\n      <option value=\"Not Allowed\">Not Allowed</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label>Pet Policy</label>\n    <select class=\"form-control\" type=\"text\" [(ngModel)]=\"pets\" name=\"pets\" required>\n      <option value=\"Allowed\">Allowed</option>\n      <option value=\"Not Allowed\">Not Allowed</option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label>Additional Information</label>\n    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"additional\" name=\"additional\">\n  </div>\n  <input type=\"submit\" value=\"submit\" class=\"btn btn-success\">\n</form>\n"
 
 /***/ }),
 
 /***/ 701:
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Login</h2>\n<form (submit)=\"onLoginSubmit()\">\n  <div class=\"form-group\">\n    <label>Username</label>\n    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\">\n  </div>\n  <div class=\"form-group\">\n    <label>Password</label>\n    <input type=\"password\" class=\"form-control\"  [(ngModel)]=\"password\" name=\"password\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n</form>\n"
+module.exports = "<div class=\"jumbotron text-center\">\n  <h1>MEAN Authentication App</h1>\n  <p class=\"lead\">Welcome to my custom MEAN authentication application built from scratch.</p>\n  <div>\n    <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a> <a class=\"btn btn-primary\" [routerLink]=\"['/login']\">Login</a>\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"col-md-4\">\n    <h3>Express Backend</h3>\n    <p>A rock solid Node.js/Express server using Mongoose to organize models and query the database.</p>\n  </div>\n  <div class=\"col-md-4\">\n    <h3>Angular CLI</h3>\n    <p>Angular-CLI to generate components, services and more. Local dev server and easy compilation.</p>\n  </div>\n  <div class=\"col-md-4\">\n    <h3>JWT Tokens</h3>\n    <p>Full featured authentication using JSON web tokens. Login and store user data.</p>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 702:
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\">Project name</a>\n    </div>\n    <div id=\"navbar\" class=\"navbar-collapse collapse\">\n      <ul class=\"nav navbar-nav navbar-left\">\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/']\">Home</a></li>\n      </ul>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/account']\">Account</a></li>\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/login']\">Login</a></li>\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/register']\">Register</a></li>\n        <li *ngIf=\"authService.loggedIn()\"><a (click)=\"onLogoutClick()\" href=\"#\">Logout</a></li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
+module.exports = "<h2 class=\"page-header\">Login</h2>\n<form (submit)=\"onLoginSubmit()\">\n  <div class=\"form-group\">\n    <label>Username</label>\n    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\">\n  </div>\n  <div class=\"form-group\">\n    <label>Password</label>\n    <input type=\"password\" class=\"form-control\"  [(ngModel)]=\"password\" name=\"password\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n</form>\n"
 
 /***/ }),
 
 /***/ 703:
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"prop\">\n  <a [routerLink]=\"['/account']\">Go Back</a>\n  <h2 class=\"page-header\">{{prop.name}}</h2>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item\">Address: {{prop.street}}, {{prop.city}}, {{prop.state}}, {{prop.country}}</li>\n    <li class=\"list-group-item\">Type: {{prop.type}}</li>\n    <li class=\"list-group-item\">Manager: {{prop.manager}}</li>\n  </ul>\n  <div>\n    <p>Additional Information: {{prop.additional}}</p>\n  </div>\n  <a class=\"btn btn-default\" [routerLink]=\"['/edit-prop/'+prop.name]\">Edit</a>\n  <a class=\"btn btn-danger\" (click)=\"onDeletePropClick()\">Delete</a>\n</div>\n<a class=\"btn btn-success\" [routerLink]=\"['/add-room/'+this._id]\">Add Unit</a>\n<div *ngIf=\"rooms\">\n  <ul class=\"list-group\">\n    <li class=\"list-group-item room\" *ngFor=\"let room of rooms\">\n      <a [routerLink]=\"['/room/'+room._id]\">{{room.title}}</a>\n      <ul class=\"list-group\">\n        <li>Price: {{room.price}}</li>\n        <li>Beds: {{room.beds}}</li>\n        <li>Max Occupants: {{room.occupants}}</li>\n        <li>Smoking Policy: {{room.smoking}}</li>\n        <li>Pet Policy: {{room.pets}}</li>\n      </ul>\n    </li>\n  </ul>\n</div>\n"
+module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\">Project name</a>\n    </div>\n    <div id=\"navbar\" class=\"navbar-collapse collapse\">\n      <ul class=\"nav navbar-nav navbar-left\">\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/']\">Home</a></li>\n      </ul>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/account']\">Account</a></li>\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/login']\">Login</a></li>\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/register']\">Register</a></li>\n        <li *ngIf=\"authService.loggedIn()\"><a (click)=\"onLogoutClick()\" href=\"#\">Logout</a></li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
 
 /***/ }),
 
 /***/ 704:
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Register</h2>\n<form (submit)=\"onRegisterSubmit()\">\n  <div class=\"form-group\">\n    <label>Name</label>\n    <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Username</label>\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Email</label>\n    <input type=\"text\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Password</label>\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Initial Property</label>\n    <input type=\"text\" [(ngModel)]=\"prop\" name=\"prop\" class=\"form-control\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"submit\">\n</form>\n"
+module.exports = "<div *ngIf=\"prop\">\n  <a [routerLink]=\"['/account']\">Go Back</a>\n  <h2 class=\"page-header\">{{prop.name}}</h2>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item\">Address: {{prop.street}}, {{prop.city}}, {{prop.state}}, {{prop.country}}</li>\n    <li class=\"list-group-item\">Type: {{prop.type}}</li>\n    <li class=\"list-group-item\">Manager: {{prop.manager}}</li>\n  </ul>\n  <div>\n    <p>Additional Information: {{prop.additional}}</p>\n  </div>\n  <a class=\"btn btn-default\" [routerLink]=\"['/edit-prop/'+prop._id]\">Edit</a>\n  <a class=\"btn btn-danger\" (click)=\"onDeletePropClick()\">Delete</a>\n</div>\n<a class=\"btn btn-success\" [routerLink]=\"['/add-room/'+this._id]\">Add Unit</a>\n<div *ngIf=\"rooms\">\n  <ul class=\"list-group\">\n    <li class=\"list-group-item room\" *ngFor=\"let room of rooms\">\n      <a [routerLink]=\"['/room/'+room._id]\">{{room.title}}</a>\n      <ul class=\"list-group\">\n        <li>Price: {{room.price}}</li>\n        <li>Beds: {{room.beds}}</li>\n        <li>Max Occupants: {{room.occupants}}</li>\n        <li>Smoking Policy: {{room.smoking}}</li>\n        <li>Pet Policy: {{room.pets}}</li>\n      </ul>\n    </li>\n  </ul>\n</div>\n"
 
 /***/ }),
 
 /***/ 705:
 /***/ (function(module, exports) {
 
+module.exports = "<h2 class=\"page-header\">Register</h2>\n<form (submit)=\"onRegisterSubmit()\">\n  <div class=\"form-group\">\n    <label>Name</label>\n    <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Username</label>\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Email</label>\n    <input type=\"text\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Password</label>\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Initial Property</label>\n    <input type=\"text\" [(ngModel)]=\"prop\" name=\"prop\" class=\"form-control\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"submit\">\n</form>\n"
+
+/***/ }),
+
+/***/ 706:
+/***/ (function(module, exports) {
+
 module.exports = "<div *ngIf=\"room\">\n  <h2 class=\"page-header\">{{room.title}}</h2>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item\">Price: {{room.price}}</li>\n    <li class=\"list-group-item\">Beds: {{room.beds}}</li>\n    <li class=\"list-group-item\">Max Occupants: {{room.occupants}}</li>\n    <li class=\"list-group-item\">Smoking Policy: {{room.smoking}}</li>\n    <li class=\"list-group-item\">Pet Policy: {{room.pets}}</li>\n  </ul>\n  <p>Additional: {{room.additional}}</p>\n  <a class=\"btn btn-default\" [routerLink]=\"['/edit-room/'+room._id]\">Edit</a>\n  <a class=\"btn btn-danger\" (click)=\"onDeleteRoomClick()\">Delete</a>\n</div>\n"
 
 /***/ }),
 
-/***/ 728:
+/***/ 729:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(392);
+module.exports = __webpack_require__(393);
 
 
 /***/ }),
@@ -1263,7 +1276,7 @@ module.exports = __webpack_require__(392);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(246);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__(528);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__(529);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1279,6 +1292,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+var config = __webpack_require__(252);
 var AuthService = (function () {
     function AuthService(http) {
         this.http = http;
@@ -1286,7 +1300,7 @@ var AuthService = (function () {
     AuthService.prototype.registerUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3000/users/register', user, { headers: headers })
+        return this.http.post('http://' + config.ip + ':3000/users/register', user, { headers: headers })
             .map(function (res) {
             return res.json();
         });
@@ -1294,7 +1308,7 @@ var AuthService = (function () {
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3000/users/authenticate', user, { headers: headers })
+        return this.http.post('http://' + config.ip + ':3000/users/authenticate', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getAccount = function () {
@@ -1302,7 +1316,7 @@ var AuthService = (function () {
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        return this.http.get('http://localhost:3000/users/account', { headers: headers })
+        return this.http.get('http://' + config.ip + ':3000/users/account', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.storeUserData = function (token, user) {
@@ -1355,6 +1369,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+var config = __webpack_require__(252);
 var PropAuthService = (function () {
     function PropAuthService(http) {
         this.http = http;
@@ -1362,31 +1377,31 @@ var PropAuthService = (function () {
     PropAuthService.prototype.registerProp = function (prop) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3000/props/add-prop', prop, { headers: headers })
+        return this.http.post('http://' + config.ip + ':3000/props/add-prop', prop, { headers: headers })
             .map(function (res) {
             return res.json();
         });
     };
     PropAuthService.prototype.getProps = function () {
-        return this.http.get('http://localhost:3000/props/account')
+        return this.http.get('http://' + config.ip + ':3000/props/account')
             .map(function (res) {
             return res.json();
         });
     };
     PropAuthService.prototype.getPropDetails = function (id) {
-        return this.http.get('http://localhost:3000/props/prop?_id=' + id)
+        return this.http.get('http://' + config.ip + ':3000/props/prop?_id=' + id)
             .map(function (res) {
             return res.json();
         });
     };
     PropAuthService.prototype.updateProp = function (id, prop) {
-        return this.http.put('http://localhost:3000/props/edit-prop?_id=' + id, prop)
+        return this.http.put('http://' + config.ip + ':3000/props/edit-prop?_id=' + id, prop)
             .subscribe(function (res) {
             return res.json();
         });
     };
     PropAuthService.prototype.deleteProp = function (id) {
-        return this.http.delete('http://localhost:3000/props/prop?_id=' + id)
+        return this.http.delete('http://' + config.ip + ':3000/props/prop?_id=' + id)
             .subscribe(function (res) {
             return res.json();
         });
@@ -1402,5 +1417,5 @@ var PropAuthService = (function () {
 
 /***/ })
 
-},[728]);
+},[729]);
 //# sourceMappingURL=main.bundle.map
