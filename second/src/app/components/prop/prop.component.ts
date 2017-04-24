@@ -24,20 +24,22 @@ export class PropComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.name = this.route.snapshot.params['id'];
+    this._id = this.route.snapshot.params['id'];
 
-    this.propAuthService.getPropDetails(this.name).subscribe(prop => {
+    this.propAuthService.getPropDetails(this._id).subscribe(prop => {
+      console.log(this.prop)
       this.prop = prop;
+      console.log(this.prop)
     },
     err => {
       console.log(err);
       return false;
     });
 
-    this.roomAuthService.getRoomsByProp(this.name).subscribe(room => {
+    this.roomAuthService.getRoomsByProp(this._id).subscribe(room => {
       this.rooms = room;
       this.rooms = this.rooms.filter(r => {
-        return r.prop === this.name
+        return r.prop === this._id
       });
     });
   }

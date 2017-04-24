@@ -6,14 +6,17 @@
     <li class="list-group-item">Type: {{prop.type}}</li>
     <li class="list-group-item">Manager: {{prop.manager}}</li>
   </ul>
+  <div>
+    <p>Additional Information: {{prop.additional}}</p>
+  </div>
   <a class="btn btn-default" [routerLink]="['/edit-prop/'+prop.name]">Edit</a>
   <a class="btn btn-danger" (click)="onDeletePropClick()">Delete</a>
 </div>
-<a class="btn btn-success" [routerLink]="['/add-room/'+this.name]">Add Unit</a>
+<a class="btn btn-success" [routerLink]="['/add-room/'+this._id]">Add Unit</a>
 <div *ngIf="rooms">
   <ul class="list-group">
     <li class="list-group-item room" *ngFor="let room of rooms">
-      <a [routerLink]="['/room/'+room.title]">{{room.title}}</a>
+      <a [routerLink]="['/room/'+room._id]">{{room.title}}</a>
       <ul class="list-group">
         <li>Price: {{room.price}}</li>
         <li>Beds: {{room.beds}}</li>

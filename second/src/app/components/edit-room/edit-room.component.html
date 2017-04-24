@@ -1,5 +1,5 @@
 <a [routerLink]="['/account']">Back</a>
-<h2 class="page-header">Edit Room</h2>
+<h2 class="page-header">Edit Unit</h2>
 <form (submit)="onEditRoomSubmit()">
   <div class="form-group">
     <label>Title (Name/Number)</label>
@@ -20,8 +20,8 @@
   <div class="form-group">
     <label>Smoking</label>
     <select class="form-control" type="text" [(ngModel)]="smoking" name="smoking" required>
-      <option value="Yes">Yes</option>
-      <option value="No">No</option>
+      <option value="Allowed">Allowed</option>
+      <option value="Not Allowed">Not Allowed</option>
     </select>
   </div>
   <div class="form-group">

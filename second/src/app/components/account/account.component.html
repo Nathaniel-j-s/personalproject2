@@ -9,7 +9,7 @@
 <div *ngIf="props">
   <ul class="list-group">
     <li class="list-group-item room" *ngFor="let prop of props">
-      <a [routerLink]="['/prop/'+prop.name]">{{prop.name}}</a>
+      <a [routerLink]="['/prop/'+prop._id]">{{prop.name}}</a>
       <ul class="list-group">
         <li>Address: {{prop.street}}, {{prop.city}}, {{prop.state}}, {{prop.country}}</li>
         <li>Type: {{prop.type}}</li>

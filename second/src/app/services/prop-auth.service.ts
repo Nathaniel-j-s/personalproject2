@@ -25,8 +25,8 @@ export class PropAuthService {
       });
   }
 
-  getPropDetails(name) {
-    return this.http.get('http://localhost:3000/props/prop?name=' + name)
+  getPropDetails(id) {
+    return this.http.get('http://localhost:3000/props/prop?_id=' + id)
       .map(res => {
         return res.json()
     });

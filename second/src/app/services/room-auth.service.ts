@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, Headers} from '@angular/http';
+import {Http, Headers, Response, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -31,11 +31,25 @@ export class RoomAuthService {
       });
   }
 
-  getRoomDetails(title) {
-    return this.http.get('http://localhost:3000/rooms/room?title=' + title)
+  getRoomDetails(id) {
+    return this.http.get('http://localhost:3000/rooms/room?_id=' + id)
       .map(res => {
         return res.json()
       });
+  }
+
+  updateRoom(id, room) {
+    return this.http.put('http://localhost:3000/rooms/edit-room?_id=' + id, room)
+      .subscribe(res => {
+        return res.json()
+      });
+  }
+
+  deleteRoom(id) {
+    return this.http.delete('http://localhost:3000/rooms/room?_id=' + id)
+      .subscribe(res => {
+        return res.json()
+    });
   }
 
 }

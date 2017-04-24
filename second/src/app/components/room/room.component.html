@@ -1,3 +1,13 @@
-<p>
-  room works!
-</p>
+<div *ngIf="room">
+  <h2 class="page-header">{{room.title}}</h2>
+  <ul class="list-group">
+    <li class="list-group-item">Price: {{room.price}}</li>
+    <li class="list-group-item">Beds: {{room.beds}}</li>
+    <li class="list-group-item">Max Occupants: {{room.occupants}}</li>
+    <li class="list-group-item">Smoking Policy: {{room.smoking}}</li>
+    <li class="list-group-item">Pet Policy: {{room.pets}}</li>
+  </ul>
+  <p>Additional: {{room.additional}}</p>
+  <a class="btn btn-default" [routerLink]="['/edit-room/'+room._id]">Edit</a>
+  <a class="btn btn-danger" (click)="onDeleteRoomClick()">Delete</a>
+</div>

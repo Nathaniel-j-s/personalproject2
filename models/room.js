@@ -23,11 +23,20 @@ module.exports.getRoomsByProp = function(prop, callback) {
   Room.find(prop, callback);
 }
 
-module.exports.getRoomDetails = function(title, callback) {
-  const query = {title: title}
+module.exports.getRoomDetails = function(id, callback) {
+  const query = {_id: id}
   Room.findOne(query, callback);
 }
 
 module.exports.addRoom = function(newRoom, callback) {
   newRoom.save(callback);
+}
+
+module.exports.updateRoom = function(id, newRoom, callback) {
+  Room.findOneAndUpdate({_id:id}, newRoom, {new: true}, callback);
+}
+
+module.exports.deleteRoom = function(id, callback) {
+  const query = {_id: id}
+  Room.findOne(query).remove(callback);
 }

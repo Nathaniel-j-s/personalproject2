@@ -54,7 +54,7 @@ router.get('/account', (req, res, next) => {
 });
 
 router.get('/prop', (req, res, next) => {
-  Prop.getPropDetails(req.query.name, function(err, prop) {
+  Prop.getPropDetails(req.query._id, function(err, prop) {
     res.json(prop);
   });
 });
@@ -62,9 +62,9 @@ router.get('/prop', (req, res, next) => {
 router.delete('/prop', (req, res, next) => {
   Prop.deleteProp(req.query._id, (err) => {
     if(err) {
-      res.json({success: false, msg:'Failed to register prop.'});
+      res.json({success: false, msg:'Failed to delete prop.'});
     } else {
-      res.json({success: true, msg:'Prop registered.'});
+      res.json({success: true, msg:'Prop deleted.'});
     }
   });
 })
