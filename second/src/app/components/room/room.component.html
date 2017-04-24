@@ -1,13 +1,30 @@
 <div *ngIf="room">
   <h2 class="page-header">{{room.title}}</h2>
-  <ul class="list-group">
-    <li class="list-group-item">Price: {{room.price}}</li>
-    <li class="list-group-item">Beds: {{room.beds}}</li>
-    <li class="list-group-item">Max Occupants: {{room.occupants}}</li>
-    <li class="list-group-item">Smoking Policy: {{room.smoking}}</li>
-    <li class="list-group-item">Pet Policy: {{room.pets}}</li>
-  </ul>
-  <p>Additional: {{room.additional}}</p>
-  <a class="btn btn-default" [routerLink]="['/edit-room/'+room._id]">Edit</a>
-  <a class="btn btn-danger" (click)="onDeleteRoomClick()">Delete</a>
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item">Price: {{room.price}}</li>
+        <li class="list-group-item">Beds: {{room.beds}}</li>
+        <li class="list-group-item">Max Occupants: {{room.occupants}}</li>
+        <li class="list-group-item">Smoking Policy: {{room.smoking}}</li>
+        <li class="list-group-item">Pet Policy: {{room.pets}}</li>
+      </ul>
+    </div>
+    <div class="col-md-5">
+      <img src="https://glamorousluxurypassion.files.wordpress.com/2012/09/btree-lux-hotel36guest_room_5-_bedroom.jpg" class="cal-image">
+    </div>
+    <div class="col-md-1">
+      <a class="btn btn-default" [routerLink]="['/edit-room/'+room._id]">Edit</a>
+      <a class="btn btn-danger" (click)="onDeleteRoomClick()">Delete</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      Additional Information:
+    </div>
+    <div class="card-block">
+      <p class="card-text">{{room.additional}}</p>
+    </div>
+  </div>
+  <img src="http://www.calendarpedia.com/images/blank/blank-calendars.png" class="cal-image">
 </div>

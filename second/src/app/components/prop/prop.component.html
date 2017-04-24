@@ -1,21 +1,27 @@
 <div *ngIf="prop">
   <a [routerLink]="['/account']">Go Back</a>
   <h2 class="page-header">{{prop.name}}</h2>
-  <ul class="list-group">
-    <li class="list-group-item">Address: {{prop.street}}, {{prop.city}}, {{prop.state}}, {{prop.country}}</li>
-    <li class="list-group-item">Type: {{prop.type}}</li>
-    <li class="list-group-item">Manager: {{prop.manager}}</li>
-  </ul>
+  <div class="row">
+    <div class="col-md-9">
+      <ul class="list-group">
+        <li class="list-group-item">Address: {{prop.street}}, {{prop.city}}, {{prop.state}}, {{prop.country}}</li>
+        <li class="list-group-item">Type: {{prop.type}}</li>
+        <li class="list-group-item">Manager: {{prop.manager}}</li>
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <a class="btn btn-default" [routerLink]="['/edit-prop/'+prop._id]">Edit</a>
+      <a class="btn btn-danger" (click)="onDeletePropClick()">Delete</a>
+    </div>
+  </div>
   <div>
     <p>Additional Information: {{prop.additional}}</p>
   </div>
-  <a class="btn btn-default" [routerLink]="['/edit-prop/'+prop._id]">Edit</a>
-  <a class="btn btn-danger" (click)="onDeletePropClick()">Delete</a>
 </div>
 <a class="btn btn-success" [routerLink]="['/add-room/'+this._id]">Add Unit</a>
 <div *ngIf="rooms">
   <ul class="list-group">
-    <li class="list-group-item room" *ngFor="let room of rooms">
+    <li class="list-group-item room room-list" *ngFor="let room of rooms">
       <a [routerLink]="['/room/'+room._id]">{{room.title}}</a>
       <ul class="list-group">
         <li>Price: {{room.price}}</li>
@@ -24,6 +30,7 @@
         <li>Smoking Policy: {{room.smoking}}</li>
         <li>Pet Policy: {{room.pets}}</li>
       </ul>
+      <img src="http://www.calendarpedia.com/images/blank/blank-calendars.png" class="tiny-cal">
     </li>
   </ul>
 </div>

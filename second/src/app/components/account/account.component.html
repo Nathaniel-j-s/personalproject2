@@ -8,13 +8,20 @@
 <a class="btn btn-success" [routerLink]="['/add-prop']">Add Property</a>
 <div *ngIf="props">
   <ul class="list-group">
-    <li class="list-group-item room" *ngFor="let prop of props">
-      <a [routerLink]="['/prop/'+prop._id]">{{prop.name}}</a>
-      <ul class="list-group">
-        <li>Address: {{prop.street}}, {{prop.city}}, {{prop.state}}, {{prop.country}}</li>
-        <li>Type: {{prop.type}}</li>
-        <li>Manager: {{prop.manager}}</li>
-      </ul>
+    <li class="list-group-item room prop-list" *ngFor="let prop of props">
+      <div class="row">
+        <div class="col-md-9">
+          <a [routerLink]="['/prop/'+prop._id]">{{prop.name}}</a>
+          <ul class="list-group">
+            <li>Address: {{prop.street}}, {{prop.city}}, {{prop.state}}, {{prop.country}}</li>
+            <li>Type: {{prop.type}}</li>
+            <li>Manager: {{prop.manager}}</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/Millennium_Biltmore_Hotel%2C_Los_Angeles.jpg" class="cal-image">
+        </div>
+      </div>
     </li>
   </ul>
 </div>

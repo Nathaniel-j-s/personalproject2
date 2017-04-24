@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__(681)();
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n\nul {\n  list-style: none;\n}\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n\nul {\n  list-style: none;\n}\n\n.prop-list {\n  margin-bottom: 10px;\n}\n\n.room-list {\n  width: 30%;\n  height: 400px;\n  float: left;\n  margin-right: 3%;\n  margin-bottom: 35px;\n}\n\n.cal-image {\n  width: 90%;\n}\n\n.tiny-cal {\n  width: 80%;\n  text-align: center;\n  margin-left: 10%;\n}\n", ""]);
 
 // exports
 

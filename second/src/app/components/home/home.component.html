@@ -1,22 +1,34 @@
 <div class="jumbotron text-center">
-  <h1>MEAN Authentication App</h1>
-  <p class="lead">Welcome to my custom MEAN authentication application built from scratch.</p>
+  <h1>Property Management Aid</h1>
+  <p class="lead">Welcome to my personal project, the Property Management Aid. Clearly this is not ready for production, so here's some silly text. If you're still reading it by the time I'm talking about my tech, you should really consider focusing on me.</p>
   <div>
-    <a class="btn btn-primary" [routerLink]="['/register']">Register</a> <a class="btn btn-primary" [routerLink]="['/login']">Login</a>
+    <a *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/account']" class="btn btn-primary">Account</a>
+    <a *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/register']" class="btn btn-primary">Register</a>
+    <a *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/login']" class="btn btn-primary">Login</a>
   </div>
 </div>
-
 <div class="row">
   <div class="col-md-4">
-    <h3>Express Backend</h3>
-    <p>A rock solid Node.js/Express server using Mongoose to organize models and query the database.</p>
+    <h3>MEAN Stack</h3>
+    <p>Because clearly, I'm not the right kind of person for a SANE stack. I'm using MongoDB, Express, Angular 2 (look upon what you have wrought, Jeremy!), and Node.js. It may be complicated, but it's super awesome and I'm proud of it.</p>
   </div>
   <div class="col-md-4">
     <h3>Angular CLI</h3>
-    <p>Angular-CLI to generate components, services and more. Local dev server and easy compilation.</p>
+    <p>The Angular CLI has been used to generate my components, services, etc. This makes for easy compilation (with Webpack (20 points, oh yeah (up to 60, if you're keeping track))).</p>
   </div>
   <div class="col-md-4">
     <h3>JWT Tokens</h3>
-    <p>Full featured authentication using JSON web tokens. Login and store user data.</p>
+    <p>Full featured authentication using JSON web tokens. Login and store user data. I did not do this part myself. I followed Brett's advice and let someone else do the authentication stuff. I just copied it.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8">
+    <h3>Other Tech</h3>
+    <p>Stop reading my presentation notes, first of all.</p>
+    <p>Bootstrap (specifically one of the templates from Bootswatch.com) was used for the extremely quick design work. This is hosted on Digital Ocean, but certainly does not yet have a domain, even if the loss of 10 points hurts me inside. My images are actually NOT being stored anywhere fancy like s3. They are just placeholders. Not every property on this website will look the same. Regretfully, I did not have enough time to create a drag-and-drop map or a calendar after I had to start this project over last Tuesday, so you're seeing the second best.</p>
+  </div>
+  <div class="col-md-2">
   </div>
 </div>
