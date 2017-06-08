@@ -1,6 +1,6 @@
 <div class="jumbotron text-center">
   <h1>Property Management Aid</h1>
-  <p class="lead">Welcome to my personal project, the Property Management Aid. Clearly this is not ready for production, so here's some silly text. If you're still reading it by the time I'm talking about my tech, you should really consider focusing on me.</p>
+  <p class="lead">Welcome to my personal project, the Property Management Aid. This is a solo, full-stack project for DevMountain. This is not a website ready for production, but rather a test drive of Angular 2 and MongoDB.</p>
   <div>
     <a *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/account']" class="btn btn-primary">Account</a>
     <a *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/register']" class="btn btn-primary">Register</a>
@@ -10,15 +10,15 @@
 <div class="row">
   <div class="col-md-4">
     <h3>MEAN Stack</h3>
-    <p>Because clearly, I'm not the right kind of person for a SANE stack. I'm using MongoDB, Express, Angular 2 (look upon what you have wrought, Jeremy!), and Node.js. It may be complicated, but it's super awesome and I'm proud of it.</p>
+    <p>I'm using MongoDB, Express, Angular 2, and Node.js. It may be complicated, but it's super awesome and I'm proud of it. If you play around a little, you'll see that it loads incredibly quickly even with relatively slow internet speeds.</p>
   </div>
   <div class="col-md-4">
     <h3>Angular CLI</h3>
-    <p>The Angular CLI has been used to generate my components, services, etc. This makes for easy compilation (with Webpack (20 points, oh yeah (up to 60, if you're keeping track))).</p>
+    <p>The Angular CLI has been used to generate my components, services, etc. This makes for easy compilation with Webpack.</p>
   </div>
   <div class="col-md-4">
     <h3>JWT Tokens</h3>
-    <p>Full featured authentication using JSON web tokens. Login and store user data. I did not do this part myself. I followed Brett's advice and let someone else do the authentication stuff. I just copied it.</p>
+    <p>Full featured authentication using JSON web tokens. Login and store user data. It is not full-fledged security as you would expect from a production app, so don't use real emails or passwords. It does, however, verify that you used proper email format and encrypt passwords such that I also don't have access to them, so that's good.</p>
   </div>
 </div>
 <div class="row">
@@ -26,8 +26,7 @@
   </div>
   <div class="col-md-8">
     <h3>Other Tech</h3>
-    <p>Stop reading my presentation notes, first of all.</p>
-    <p>Bootstrap (specifically one of the templates from Bootswatch.com) was used for the extremely quick design work. This is hosted on Digital Ocean, but certainly does not yet have a domain, even if the loss of 10 points hurts me inside. My images are actually NOT being stored anywhere fancy like s3. They are just placeholders. Not every property on this website will look the same. Regretfully, I did not have enough time to create a drag-and-drop map or a calendar after I had to start this project over last Tuesday, so you're seeing the second best.</p>
+    <p>Bootstrap was used for the extremely quick design work. This is hosted on Digital Ocean, but certainly does not yet have a domain, although if I can add more functionality I would like to get one. My images are actually NOT being stored anywhere fancy like s3. They are just placeholders. I am currently working on a different project, but afterwards I plan to come back and add a geniune calendar module and then potentially a drag-and-drop map for each property.</p>
   </div>
   <div class="col-md-2">
   </div>
